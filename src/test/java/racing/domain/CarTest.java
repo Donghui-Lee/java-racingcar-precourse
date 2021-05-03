@@ -14,6 +14,7 @@ public class CarTest {
         // when & then
         assertThat(car.name()).isEqualTo(Name.of(test));
         assertThat(car).isEqualTo(Car.of(test));
+        assertThat(car).isEqualTo(Car.of(test, 0));
     }
 
     @Test
@@ -21,8 +22,18 @@ public class CarTest {
         // given
         Car car = Car.of("test1");
         // when
-        car.move();
+        car.move(() -> true);
         // then
         assertThat(car.position()).isEqualTo(Position.of(1));
+    }
+
+    @Test
+    void 멈춤_테스트() {
+        // given
+        Car car = Car.of("test1");
+        // when
+        car.move(() -> false);
+        // then
+        assertThat(car.position()).isEqualTo(Position.of(0));
     }
 }
