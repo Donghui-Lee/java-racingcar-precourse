@@ -17,6 +17,10 @@ public class Position {
         return new Position(position);
     }
 
+    public static Position init() {
+        return new Position(MIN_POSITION);
+    }
+
     private void validate(int position) {
         if (position < MIN_POSITION) {
             throw new IllegalArgumentException("위치 정보는 음수 값을 가질수 없습니다.");

@@ -11,8 +11,11 @@ public class PositionTest {
     void 생성_테스트() {
         // given
         Position position = Position.of(1);
+        Position position2 = Position.init();
         // when & then
         assertThat(position).isEqualTo(Position.of(1));
+        assertThat(position2).isEqualTo(Position.of(1));
+        assertThat(position).isEqualTo(position2);
     }
 
     @Test
