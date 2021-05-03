@@ -3,6 +3,8 @@ package racing.domain;
 import java.util.Objects;
 
 public class Name {
+    private static final int MAX_NAME_LENGTH = 5;
+
     private final String name;
 
     private Name(String name) {
@@ -17,7 +19,7 @@ public class Name {
         if (name.isEmpty()) {
             throw new IllegalArgumentException("자동차의 이름은 공백이 될 수 없습니다.");
         }
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름의 길이는 5글자를 초과할 수 없습니다.");
         }
         return name;
