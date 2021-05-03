@@ -14,8 +14,7 @@ public class PositionTest {
         Position position2 = Position.init();
         // when & then
         assertThat(position).isEqualTo(Position.of(1));
-        assertThat(position2).isEqualTo(Position.of(1));
-        assertThat(position).isEqualTo(position2);
+        assertThat(position2).isEqualTo(Position.of(0));
     }
 
     @Test
@@ -30,5 +29,13 @@ public class PositionTest {
         // when & then
         assertThat(position.move()).isEqualTo(Position.of(2));
         assertThat(position.move().move()).isEqualTo(Position.of(3));
+    }
+
+    @Test
+    void 비교_테스트() {
+        assertThat(Position.init().isLessThan(Position.of(2))).isTrue();
+        assertThat(Position.of(3).isLessThan(Position.of(2))).isFalse();
+        assertThat(Position.of(2).isLessThan(Position.of(2))).isFalse();
+        assertThat(Position.of(3).isLessThan(Position.of(5))).isTrue();
     }
 }

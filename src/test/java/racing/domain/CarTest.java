@@ -36,4 +36,14 @@ public class CarTest {
         // then
         assertThat(car.position()).isEqualTo(Position.of(0));
     }
+
+    @Test
+    void 위치_비교_테스트() {
+        // given
+        Car test = Car.of("test1", 5);
+        Car test2 = Car.of("test2", 2);
+        // when & then
+        assertThat(test.fartherPosition(Position.of(3))).isEqualTo(Position.of(5));
+        assertThat(test2.fartherPosition(Position.of(3))).isEqualTo(Position.of(3));
+    }
 }

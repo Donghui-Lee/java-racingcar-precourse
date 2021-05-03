@@ -30,6 +30,13 @@ public class Car {
         }
     }
 
+    public Position fartherPosition(Position comparePosition) {
+        if (this.position.isLessThan(comparePosition)) {
+            return comparePosition;
+        }
+        return this.position;
+    }
+
     public Name name() {
         return this.name;
     }

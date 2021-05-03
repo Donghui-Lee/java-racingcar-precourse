@@ -31,6 +31,10 @@ public class Position {
         return new Position(this.position + INCREASE_MOVE_VALUE);
     }
 
+    public boolean isLessThan(Position comparePosition) {
+        return this.position < comparePosition.position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
