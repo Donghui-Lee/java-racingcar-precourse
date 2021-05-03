@@ -1,9 +1,12 @@
 package racing.domain;
 
+import java.util.Objects;
+
 public class Round {
     private final int round;
 
     private Round(int round) {
+        validate(round);
         this.round = round;
     }
 
@@ -12,6 +15,27 @@ public class Round {
     }
 
     public static Round of(String round) {
-        return new Round(Integer.parseInt(round));
+        return new Round(Integer.parseInt(round.trim()));
+    }
+
+    private void validate(int round) {
+        if (round < 0) {
+            throw new IllegalArgumentException("유효하지 않은 시도할 회수 입니다.");
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Round round1 = (Round)o;
+        return round == round1.round;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(round);
     }
 }
