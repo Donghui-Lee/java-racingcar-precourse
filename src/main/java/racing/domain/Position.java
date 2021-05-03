@@ -3,7 +3,8 @@ package racing.domain;
 import java.util.Objects;
 
 public class Position {
-    private static final int INCREASE_MOVE = 1;
+    private static final int INCREASE_MOVE_VALUE = 1;
+    private static final int MIN_POSITION = 0;
 
     private final int position;
 
@@ -17,13 +18,13 @@ public class Position {
     }
 
     private void validate(int position) {
-        if (position < 0) {
+        if (position < MIN_POSITION) {
             throw new IllegalArgumentException("위치 정보는 음수 값을 가질수 없습니다.");
         }
     }
 
     public Position move() {
-        return new Position(this.position + INCREASE_MOVE);
+        return new Position(this.position + INCREASE_MOVE_VALUE);
     }
 
     @Override

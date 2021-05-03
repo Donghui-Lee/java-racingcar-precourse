@@ -3,6 +3,7 @@ package racing.domain;
 import java.util.Objects;
 
 public class Round {
+    private static final int MIN_ROUND = 0;
     private final int round;
 
     private Round(int round) {
@@ -19,7 +20,7 @@ public class Round {
     }
 
     private void validate(int round) {
-        if (round < 0) {
+        if (round < MIN_ROUND) {
             throw new IllegalArgumentException("유효하지 않은 시도할 회수 입니다.");
         }
     }
