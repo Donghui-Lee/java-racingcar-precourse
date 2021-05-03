@@ -26,5 +26,6 @@ public class PositionTest {
         Position position = Position.of(1);
         // when & then
         assertThat(position.move()).isEqualTo(Position.of(2));
+        assertThat(position.move().move()).isEqualTo(Position.of(3));
     }
 }
