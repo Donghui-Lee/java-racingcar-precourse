@@ -23,5 +23,6 @@ public class NameTest {
     @Test
     void 빈값_예외_테스트() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> Name.of(""));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Name.of(" "));
     }
 }
