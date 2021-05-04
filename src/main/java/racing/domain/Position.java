@@ -35,6 +35,10 @@ public class Position {
         return this.position < comparePosition.position;
     }
 
+    public int toInteger() {
+        return this.position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)

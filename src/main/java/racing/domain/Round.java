@@ -25,6 +25,10 @@ public class Round {
         }
     }
 
+    public int toInteger() {
+        return this.round;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o)
