@@ -22,6 +22,16 @@ public class CarsTest {
     }
 
     @Test
+    void 자동차_추가_테스트_2() {
+        // given
+        String[] names = "test1,test2,test3".split(",");
+        // when
+        Cars cars = new Cars(names);
+        // then
+        assertThat(cars.toList().size()).isEqualTo(3);
+    }
+
+    @Test
     void 우승자_찾기_테스트() {
         // given
         Car test1 = Car.of("test1", 1);
