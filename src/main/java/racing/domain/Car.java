@@ -2,6 +2,8 @@ package racing.domain;
 
 import java.util.Objects;
 
+import racing.domain.strategy.MoveStrategy;
+
 public class Car {
     private final Name name;
     private Position position;

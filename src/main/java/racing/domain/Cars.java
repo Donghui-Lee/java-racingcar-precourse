@@ -3,6 +3,8 @@ package racing.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import racing.domain.strategy.MoveStrategy;
+
 public class Cars {
     private final List<Car> cars;
 
@@ -14,12 +16,19 @@ public class Cars {
         this.cars = cars;
     }
 
+    public Cars(String[] carNames) {
+        cars = new ArrayList<>();
+        for (String name : carNames) {
+            cars.add(Car.of(name));
+        }
+    }
+
     public void add(Car car) {
         this.cars.add(car);
     }
 
-    public List<Car> toList() {
-        return this.cars;
+    public void run(MoveStrategy moveStrategy) {
+        cars.forEach(car -> car.move(moveStrategy));
     }
 
     public List<Car> findWinners() {
@@ -44,5 +53,9 @@ public class Cars {
             farthest = car.fartherPosition(farthest);
         }
         return farthest;
+    }
+
+    public List<Car> toList() {
+        return this.cars;
     }
 }
